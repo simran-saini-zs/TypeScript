@@ -54,6 +54,12 @@
     background-color: rgb(251, 244, 246);
     border: 2px solid black;
 }
+.disable{
+        margin: 5px;
+        background-color: rgb(251, 244, 246);
+        border: 2px solid black;
+        opacity: 2px;
+}
 .main-btn{
     border: 2px solid #333A44;
     background-color: rgb(13, 12, 12,0.2);
