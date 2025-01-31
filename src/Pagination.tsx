@@ -42,7 +42,7 @@ let idx:number = (pageNo-1)*5;
             </div>
             <div className="buttons">
                 
-                <button className={pageNo==1?'btn disable':'btn'} onClick={()=>{setPageNo(max_pageNo)}}>≪</button>
+                <button className={pageNo==1?'btn disable':'btn'} onClick={()=>{setPageNo(1)}}>≪</button>
                 <button className={pageNo==1?'btn disable':'btn'} onClick={()=>{setPageNo((prev)=>prev == max_pageNo?1:prev-1)}}>{"<"}</button>
                 
                 {pageNo-2 == max_pageNo-2 ?<button className='btn btn-2' onClick={()=>{setPageNo((prev)=>prev-2)}}>{pageNo-2}</button>:null }
@@ -53,7 +53,7 @@ let idx:number = (pageNo-1)*5;
 
                 {pageNo+2 < max_pageNo?<button className='btn btn-2'>.....</button>:null}
                 <button className={pageNo==max_pageNo?'btn disable':'btn'} onClick={()=>{setPageNo((prev)=>prev==max_pageNo?1:prev+1)}}>{">"}</button>
-                <button className={pageNo==max_pageNo?'btn disable':'btn'} onClick={()=>{setPageNo(1)}}>≫</button>
+                <button className={pageNo==max_pageNo?'btn disable':'btn'} onClick={()=>{setPageNo(max_pageNo)}}>≫</button>
             </div>
         </div>
         </>
