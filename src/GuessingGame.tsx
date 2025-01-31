@@ -19,20 +19,20 @@ const GuessingGame: React.FC = () => {
     setName(event.target.value); // Update name in state
 
     if (Actual_Name.indexOf(Alpabet) !== -1) { // Check if the character is in the actual name
-      let arr = Name_arr + Alpabet;
+      const arr = Name_arr + Alpabet;
       if (Actual_Name.indexOf(arr) === 0) { // Check if the partial guess matches the start of Actual_Name
         setArr(arr); // Update guessed name
       } else {
         setTimeout(() => {
           setName((prev) => prev.slice(0, prev.length - 1)); // Remove the last character from the input after delay
-        }, 1000);
+        }, 500);
         setError(2); // Error: character is correct but in the wrong position
       }
     } else {
       alert("You lost one move");
       setTimeout(() => {
         setName((prev) => prev.slice(0, prev.length - 1)); // Remove the last character from the input after delay
-      }, 1000);
+      }, 500);
       setError(1); // Error: character is not in the name
       setGuess((prev) => prev - 1); // Decrease the number of guesses left
     }
@@ -50,7 +50,11 @@ const GuessingGame: React.FC = () => {
     <>
       {Number_of_guess !== 0 && Name_arr.length !== 5 ? (
         <div className='outer-cont'>
-          <div className="trials">Trials left❤️: {Number_of_guess}</div>
+          <div className="trials">
+          {Array(Number_of_guess).fill("❤️").map((_, i) => (
+           <span key={i} className="heart">❤️</span>
+           ))}
+           </div>
           <div className="output">
             {Array.from({ length: 5 }).map((ele, idx) => {
               return (
