@@ -3,14 +3,14 @@ import './App.css'
 import './Pagination.css'
 const Pagination: React.FC = ()=>
 {
-let [pageNo,setPageNo] = useState<number>(1);
-let [data,setData] = useState<any[]>([]);
-let max_pageNo:number = data.length/10;
+const [pageNo,setPageNo] = useState<number>(1);
+const [data,setData] = useState<any[]>([]);
+const max_pageNo:number = data.length/10;
 useEffect(()=>{
     async function fetchdata()
 {
-   let response:any = await fetch('https://dummyjson.com/products?limit=100');
-   let d1 = await response.json();
+   const response:any = await fetch('https://dummyjson.com/products?limit=100');
+   const d1 = await response.json();
    setData(d1["products"]);
 }
 fetchdata();
@@ -43,8 +43,8 @@ let idx:number = (pageNo-1)*5;
             </div>
             <div className="buttons">
                 
-                {pageNo == 1? null:<button className='btn' onClick={()=>{setPageNo(1)}}>{"<<"}</button>}
-                {pageNo == 1?null:<button className='btn' onClick={()=>{setPageNo((prev)=>prev-1)}}>{"<"}</button>}
+                <button className={pageNo==1?'btn disable':'btn'} onClick={()=>{setPageNo(1)}}>≪</button>
+                <button className={pageNo==1?'btn disable':'btn'} onClick={()=>{setPageNo((prev)=>prev == 1?1:prev-1)}}>{"<"}</button>
                 
                 {pageNo-2 == max_pageNo-2 ?<button className='btn btn-2' onClick={()=>{setPageNo((prev)=>prev-2)}}>{pageNo-2}</button>:null }
                 {pageNo-1 >= max_pageNo-2? <button className='btn btn-2' onClick={()=>{setPageNo((prev)=>prev-1)}}>{pageNo-1}</button>:null}
@@ -53,8 +53,8 @@ let idx:number = (pageNo-1)*5;
                 {pageNo+2 <= max_pageNo?  <button className='btn btn-2' onClick={()=>{setPageNo((prev)=>prev+2)}}>{pageNo+2}</button>:null}
 
                 {pageNo+2 < max_pageNo?<button className='btn btn-2'>.....</button>:null}
-                {pageNo >= max_pageNo?null:<button className='btn' onClick={()=>{setPageNo((prev)=>prev+1)}}>{">"}</button>}
-                {pageNo==max_pageNo? null:<button className='btn' onClick={()=>{setPageNo(max_pageNo)}}>{">>"}</button>}
+                <button className={pageNo==max_pageNo?'btn disable':'btn'} onClick={()=>{setPageNo((prev)=>prev==max_pageNo?max_pageNo:prev+1)}}>{">"}</button>
+                <button className={pageNo==max_pageNo?'btn disable':'btn'} onClick={()=>{setPageNo(max_pageNo)}}>≫</button>
             </div>
         </div>
         </>

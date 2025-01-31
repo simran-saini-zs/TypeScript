@@ -1,9 +1,8 @@
 import './App.css'
-import Pagination from './pagination.tsx'
+import Pagination from './Pagination.tsx'
 
 function App() {
   
-
   return (
     <>
       <Pagination/>
