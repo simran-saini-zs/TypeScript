@@ -18,10 +18,12 @@
 }
 .output-box{
     margin: 10px;
-    height: 100px;
+    height: 80px;
     width: 100px;
     background-color: white;
     border: 2px solid black;
+    font-size: 40px;
+    font-weight: 500;
 }
 .restart{
     position: relative;
@@ -36,6 +38,8 @@
 }
 .input input{
     border: 2px solid black;
+    font-size: 30px;
+    font-weight: 400;
 }
 .error1{
     color:white;

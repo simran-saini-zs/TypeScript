@@ -29,6 +29,7 @@ const GuessingGame: React.FC = () => {
         setError(2); // Error: character is correct but in the wrong position
       }
     } else {
+      alert("You lost one move");
       setTimeout(() => {
         setName((prev) => prev.slice(0, prev.length - 1)); // Remove the last character from the input after delay
       }, 1000);
@@ -44,7 +45,7 @@ const GuessingGame: React.FC = () => {
     setArr(""); // Reset guessed name
     setName(""); // Reset input name
   }
-
+ 
   return (
     <>
       {Number_of_guess !== 0 && Name_arr.length !== 5 ? (
