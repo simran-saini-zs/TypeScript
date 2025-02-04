@@ -1,0 +1,13 @@
+.containers{
+    display: flex;
+    gap: 300px;
+}
+.firstInput,.secondInput{
+    height: 40px;
+    width: 400px;
+    background-color: beige;
+    color: black;
+    border-radius: 15px;
+    border: 1px solid black;
+    font-size: 20px;
+}
