@@ -15,21 +15,33 @@ interface Images {
 
 const Carousel: React.FC<Images> = ({ data,reference }) => {
   const [indx, setIndx] = useState(0);
-
+  const [prevref,setRef] = useState<any>(null);
   
   const goToNext = () => {
+    // setTimeout(() => {
+    //   setIndx((prev) => (prev === data.length - 1 ? 0 : prev + 1)); 
+    //   reference.current.className = "carousel-image go-away-right";
+    // }, 1000);
+    // setTimeout(() => {
+    //   reference.current.className = "carousel-image come-rigth";
+    // }, 3000);
+    prevref.current.calssName = "carousel-image go-away-right";
+    reference.current.className = "carousel-image come-rigth";
     setTimeout(() => {
       setIndx((prev) => (prev === data.length - 1 ? 0 : prev + 1)); 
-      reference.current.className = "carousel-image come";
+      setRef(reference);
     }, 1000);
-    reference.current.className = "carousel-image go-away-left";
   };
 
   
   const goToPrevious = () => {
     setTimeout(() => {
       setIndx((prev) => (prev === 0 ? data.length - 1 : prev - 1)); 
-    }, 2000);
+      reference.current.className = "carousel-image go-away-left";
+    }, 1000);
+    setTimeout(() => {
+      reference.current.className = "carousel-image come-left";
+    }, 3000);
   };
 
   return (

@@ -87,6 +87,15 @@ button.next {
 .go-away-left{
     animation: slideOutLeft 2s forwards;
 }
+.go-away-right{
+  animation: slideOutRight 2s forwards;
+}
+.come-left{
+  animation: slideInLeft 2s forwards;
+}
+.come-rigt{
+  animation: slideInRight 3s forwards;
+}
 
   /* Keyframes for slide-in animation */
   @keyframes slideInLeft {
@@ -114,27 +123,22 @@ button.next {
   @keyframes slideInRight {
     0% {
       opacity: 1;
-      transform: translateX(0); /* Start from original position */
+      transform: translateX(100%); /* Start from original position */
     }
     100% {
       opacity: 0;
-      transform: translateX(100%); /* Slide off-screen to the right */
+      transform: translateX(0); /* Slide off-screen to the right */
     }
   }
   
   /* Keyframes for slide-out animation */
   @keyframes slideOutRight {
     0% {
-      opacity: 0;
-      transform: translateX(-100%); /* Start off-screen to the left */
+      opacity: 1;
+      transform: translateX(0); /* Start off-screen to the left */
     }
     100% {
-      opacity: 1;
-      transform: translateX(0); /* Slide to the original position */
+      opacity: 0;
+      transform: translateX(-100%); /* Slide to the original position */
     }
   }
-
-  .come{
-    animation: slideInLeft 2s forwards;
-  }
-  
