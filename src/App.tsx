@@ -3,8 +3,9 @@ import Carousel from './Carousel'
 import useImage from './useImages'
 
 function App() {
- let {data,error,isloading} = useImage("http://localhost:3000/images");
- let ref = useRef(null);
+ const {data,error,isloading} = useImage("http://localhost:3000/images");
+ const ref = useRef(null);
+ console.log(error);
   if(isloading)
   {
     setTimeout(() => {

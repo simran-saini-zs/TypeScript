@@ -25,22 +25,22 @@ const Carousel: React.FC<Images> = ({ data,reference }) => {
     // setTimeout(() => {
     //   reference.current.className = "carousel-image come-rigth";
     // }, 3000);
-    prevref.current.calssName = "carousel-image go-away-right";
-    reference.current.className = "carousel-image come-rigth";
+    // prevref.current.calssName = "carousel-image go-away-right";
+    // reference.current.className = "carousel-image come-rigth";
     setTimeout(() => {
       setIndx((prev) => (prev === data.length - 1 ? 0 : prev + 1)); 
       setRef(reference);
     }, 1000);
   };
-
+  if(reference && prevref) console.log(reference.current,prevref.current);
   
   const goToPrevious = () => {
     setTimeout(() => {
       setIndx((prev) => (prev === 0 ? data.length - 1 : prev - 1)); 
-      reference.current.className = "carousel-image go-away-left";
+      // reference.current.className = "carousel-image go-away-left";
     }, 1000);
     setTimeout(() => {
-      reference.current.className = "carousel-image come-left";
+      // reference.current.className = "carousel-image come-left";
     }, 3000);
   };
 
@@ -51,9 +51,9 @@ const Carousel: React.FC<Images> = ({ data,reference }) => {
           {"<"}
         </button>
         <div className="carousel-images" >
-
+          {/* <img src= {indx == 0? data[data.length-1]["src"]:data[indx-1]["src"]} className = "disabled"/> */}
           <img ref = {reference} className="carousel-image" src={data[indx]["src"]}  />
-
+          {/* <img src= {indx == data.length-1?  data[0]["src"]:data[indx+1]["src"]}  className = "disabled"/> */}
         </div>
         <button className="next btn" onClick={goToNext}>
           {">"}
