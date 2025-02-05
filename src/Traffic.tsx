@@ -16,11 +16,11 @@ function Traffic()
     //     return (()=> clearInterval(id));
     // },[light]);
 
-    //Using setTimeout:
-    // console.log(light,time[light]);
-    // setTimeout(()=>{
-    //     setLight((prev)=> (prev+1)%3);
-    // },time[light]);
+    // Using setTimeout:
+    console.log(light,time[light]);
+    setTimeout(()=>{
+        setLight((prev)=> (prev+1)%3);
+    },time[light]);
   
     return (
         <div className='container'>
